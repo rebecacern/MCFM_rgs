@@ -1,2 +1,36 @@
 +++ To run MCFM in CMSSW
 
+++ Requires CMSSW installation:
+
+cmsrel CMSSW_7_6_3
+cd CMSSW_7_6_3/src/
+cmsenv
+
+++ Download the package (http://mcfm.fnal.gov/):
+
+wget http://mcfm.fnal.gov/MCFM-7.0.1.tar.gz
+tar xvzf MCFM-7.0.1.tar.gz
+cd MCFM-7.0.1
+
+++ Some fixes:
+
+Replace Install and makefile but the files in this repository
+
+++ Compile:
+
+setenv LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5-cms/lib
+setenv LHAPATH {$LHAPATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5-cms/share/LHAPDF/
+setenv PATH {$PATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5/bin/
+setenv PATH {$PATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5-cms//lhapdf/bin/
+
+./Install
+make
+
+++ Modify the input file
+
+Or use one of the inputs in this folder
+
+
+++ Run
+
+ bsub -R "pool>30000" -q 1nw -J job1 < runMCFM.csh 
