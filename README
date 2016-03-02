@@ -16,19 +16,22 @@ cd MCFM-7.0.1
 
 Replace Install and makefile but the files in this repository
 
-++ Compile:
+++ Set the paths
 
 setenv LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5-cms/lib
 setenv LHAPATH {$LHAPATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5-cms/share/LHAPDF/
 setenv PATH {$PATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5/bin/
 setenv PATH {$PATH}:/cvmfs/cms.cern.ch/slc6_amd64_gcc481/external/lhapdf6/6.1.5-cms//lhapdf/bin/
 
+++ Install and compile:
+
 ./Install
 make
 
 ++ Modify the input file
 
-Or use one of the inputs in this folder
+Or use one of the inputs in this folder (the ggWW... are all in 7.0, they won't
+work in another version)
 
 
 ++ Run
